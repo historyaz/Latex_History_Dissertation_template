@@ -1,0 +1,309 @@
+%%%% Time-stamp: <2013-09-18 19:27:11 vk>
+%% ========================================================================
+%%%% Disclaimer
+%% ========================================================================
+%%
+%% created by
+%%
+%%      Karl Voit
+%%
+%% ========================================================================
+%%%% Basic settings
+%% ========================================================================
+%% (idea of using newcommands for basic documentclass settings from: Thomas Schlager)
+
+\newcommand{\mypapersize}{A4}
+%% e.g., "A4", "letter", "legal", "executive", ...
+%% The size of the paper of the resulting PDF file.
+
+\newcommand{\mylaterality}{oneside}
+%% "oneside" or "twoside"
+%% Either you are creating a document which is printed on both, left pages
+%% and right pages (twoside) or you create a document which is printed
+%% on right pages only (oneside).
+
+\newcommand{\mydraft}{false}
+%% "true" or "false"
+%% Use draft mode? If true, included graphics are replaced by empty
+%% rectangles (of same size) and overfull boxes (in margin space) are
+%% marked with black box (-> easy to spot!)
+
+\newcommand{\myparskip}{half}
+%% e.g., "no", "full", "half", ...
+%% How to separate paragraphs: indention ("no") or spacing ("half",
+%% "full", ...).
+
+\newcommand{\myBCOR}{0mm}
+%% Inner binding correction. This value depends on the method which is
+%% being used to bind your printed result. Some techniques do not
+%% require a binding correction at all ("0mm"), other require for
+%% example "5mm". Refer to KOMA script documentation for a detailed
+%% explanation what a binding correction is and how to measure it.
+
+\newcommand{\myfontsize}{10pt}   
+%% e.g., 10pt, 11pt, 12pt
+%% The font size of the main text in pt (points).
+
+\newcommand{\mylinespread}{1.5} 
+%% e.g., 1.0, 1.5, 2.0
+%% Line spacing in %/100. For example 1.5 means 150% of the usual line
+%% spacing. Please use with caution: 100% ("1.0") is fine because the
+%% font was designed for it.
+
+\newcommand{\mylanguage}{american, ngerman}
+%% "english,ngerman", "ngerman,english", ...
+%% NOTE: The *last* language is the active one!
+%% See babel documentation for further details.
+
+%% BIBLATEX
+%% BibLaTeX-settings: (see biblatex reference for further description)
+
+\newcommand{\mybiblatexstyle}{authortitle-dw}
+%% authortitle-dw is used for citations that follow citation rules
+%% that are used by the humanties. Chose appropriatly.
+
+%% e.g., "alphabetic", "authoryear", ...
+%% The biblatex style which is being used for referencing. See
+%% biblatex documentation for further details and more values.
+%%
+%% CAUTION: if you change the style, please check for (in)compatible
+%%          "biblatex" package options in the file
+%%          "template/preamble.tex"! For example: "alphabetic" does
+%%          not have an option "dashed=..." and causes an error if it
+%%          does not get removed from the list of options.
+
+\newcommand{\mybiblatexdashed}{false}  %% "true" or "false"
+%% If true: replace recurring reference authors with a dash.
+
+\newcommand{\mybiblatexbackref}{false}  %% "true" or "false"
+%% If true: create backward links from reference to citations.
+
+\newcommand{\mybiblatexfile}{bib/muster.bib}
+%% Name of the biblatex file that holds the references.
+
+\newcommand{\mydispositioncolor}{0,0,0}
+%% e.g., "30,103,182" (blue/turquois), "0,0,0" (black), ...
+%% Color of the headings and so forth in RGB (red,green,blue) values.
+%% NOTE: if you are using "0,0,0" for black, printers might still
+%%       recognize pages as color pages. In case this is a problem
+%%       (paying for color print-outs vs. paying for b/w-printouts)
+%%       please edit file "template/preamble.tex" and change
+%%       "\definecolor{DispositionColor}{RGB}{\mydispositioncolor}"
+%%       to "\definecolor{DispositionColor}{gray}{0}" and thus
+%%       overwriting the value of \mydispositioncolor above.
+
+\newcommand{\mycolorlinks}{true}  %% "true" or "false"
+%% Enables or disables colored links (hyperref package).
+
+
+\newcommand{\mytitlepage}{template/titlepage_uni_vie}
+%% Title page of the University of Vienna
+
+\newcommand{\mytodonotesoptions}{disable}
+%% e.g., "" (empty), "disable", ...
+%% Options for the todonotes-package. If "disable", all todo
+%notes will be hidden (including listoftodos).
+
+%% Load main settings for document preamble:
+\input{template/preamble} %% DO NOT REMOVE THIS LINE!
+
+\setboolean{myaddcolophon}{true}  %% "true" or "false"
+%% check the colophon file if you do not know what it is
+%% If set to "true": a colophon (with notes about this document
+%% template, LaTeX, ...) is added after the title page.
+%% Please do not set to "false" without a good reason. The colophon
+%% helps your readers to get in touch with LaTeX and to find this template.
+
+\setboolean{myaddlistoftodos}{false}  %% "true" or "false"
+%% If set to "true": the current list of open todos is added after the
+%% table of contents. If \mytodonotesoptions is set to "disable", no
+%% list of todos is added, independent of this setting here.
+
+%% index
+% creates an index
+% level: adds the index as section
+% toc: adds the index as section to the toc
+% noclearpage: prevents a clear page
+\makeindex[name=autor,title=Namensregister]
+\makeindex[name=sach,title=Sachregister]
+\indexsetup{level=\section,toclevel=section,noclearpage}
+%%
+
+%% ========================================================================
+%%%% Document metadata
+%% ========================================================================
+
+%%% 
+%%% for the Unitversity of Vienna front page not all of this fields are used
+%%%
+
+%% general metadata:
+\newcommand{\myauthor}{Mag. Firstname Lastname}  %% also used for PDF metadata (hyperref)
+\newcommand{\mytitle}{Title:}
+
+\newcommand{\mysubtitle}{ Subtitle}  %% also used for PDF metadata (hyperref)
+\newcommand{\mysubject}{subject}  %% also used for PDF metadata (hyperref)
+\newcommand{\mykeywords}{Keyword1, Keyword2}  %% also used for PDF metadata (hyperref)
+
+%% this information is used only for generating the title page:
+\newcommand{\myworktitle}{Dissertation}  %% official type of work like ``Master theses''
+\newcommand{\mygrade}{PhD} %% title you are getting with this work like ``Master of ...''
+\newcommand{\mystudy}{History} %% your study like ``Arts''
+\newcommand{\myuniversity}{Universität Wien} %% your university/school
+\newcommand{\myinstitute}{Institutsname} %% affiliation
+\newcommand{\myinstitutehead}{ao. Univ.-Prof.\,Mag.\,Dr.\, Albert Einstein} %% head of institute
+\newcommand{\mysupervisor}{ao. Univ.-Prof.\,Mag.\,Dr.\, Isaac Newton} %% your supervisor
+\newcommand{\myevaluator}{ao. Univ.-Prof.\,Mag.\,Dr.\, Albert Einstein} %% your evaluator
+\newcommand{\myhomestreet}{Musterstraße 5} %% your home street (with house number)
+\newcommand{\myhometown}{Ort} %% your home town
+\newcommand{\myhomepostalnumber}{Number} %% your postal number of home town
+\newcommand{\mysubmissionmonth}{Mai} %% month you are handing in
+\newcommand{\mysubmissionyear}{2014} %% year you are handing in
+\newcommand{\mysubmissiontown}{\myhometown} %% town of handing in (or \myhometown)
+
+%% additional information for generic_documentation title page
+\newcommand{\myid}{A 012345} %% Matrikelnummer
+\newcommand{\mylecture}{LECTURE} %% 
+
+
+%% ========================================================================
+%%%% MISC command definitions
+%% ========================================================================
+\input{template/mycommands}
+
+%% ========================================================================
+%%%% Typographic settings
+%% ========================================================================
+\input{template/typographic_settings}
+
+
+%% ========================================================================
+%%%% MISC usepackages
+%% ========================================================================
+
+%% ... it's OK to put here your own usepackage commands ...
+
+%% Acronym packet / may also create glossaries (currently not used)
+% acronym = creates acronym
+% nomain = only creates acronyms (remove if glossaries are used)
+% section = shows acronyms as sections
+% numberedsection: creates numbers for acronym
+% toc: fügt es zum table of contents hinzu
+% nonumberedlist: removes page numbers from acronyms
+\usepackage[acronym,nomain,section,numberedsection,toc,nonumberlist]{glossaries}
+\renewcommand{\glspostdescription}{} %%% removes the trailing dot
+\makeglossaries %% creates the arconyms (and glossaries)
+
+
+%% ========================================================================
+%%%% MISC self-defined commands and settings
+%% ========================================================================
+
+%% ... it's OK to put here your own newcommand/newenvironment-definitions ...
+
+% you can create you own commands here. 
+%idxn and idxs are commands can be used for fast usage of indexes
+\newcommand{\idxn}{\index[autor]}
+\newcommand{\idxs}{\index[sach]}
+
+%%%%% 
+
+\hyphenation{ex-am-ple hy-phen-ate}  %% in order to use German umlauts
+%% here (Ver-\"of-fent-li-chung), you have to check for 
+%% activated \usepackage[T1]{fontenc} in the preamble
+
+%% override default language of babel: (be sure to know, what you're
+%% doing here)
+%\selectlanguage{american}
+%\selectlanguage{ngerman}
+
+%% ========================================================================
+%%%% Templates
+%% ========================================================================
+
+%% template for inserting figures:
+% \myfig{}%% filename
+%       {}%% width/height
+%       {}%% caption
+%       {}%% optional (short) caption for list of figures
+%       {fig:}%% label
+
+%% acronyms in small caps: \myacro{UNESCO}
+
+\input{template/pdf_settings}  %% should be *last* definitions in preamble!
+
+
+%% ========================================================================
+%%%% Acronyms and Glossaries
+%% ========================================================================
+
+% imports Acronyms
+% add new acronyms to the file register/acronyms first before they can be used
+\input{register/acronyms}
+
+% to create glossaries add a file register/glossary and import it here. 
+%The package options must also be changed (see MISC usepackages)
+%\input{register/glossary}
+
+%% ========================================================================
+%%%% begin{document}
+%% ========================================================================
+\begin{document}
+
+%% KOMA: roman page numbers and such; only available in scrbook
+\frontmatter                   
+
+%% defines information about editor, LaTeX, font, ...
+%\input{colophon}               
+
+%% inputs title page 
+\input{\mytitlepage} %% include title page
+\setcounter{page}{1} %% resets page numbering to start with roman number 1 after title 
+
+%%% \input{template/declaration}  this is a suggestion: you have to create this file on demand
+% \input{thanks}     %% this is a suggestion: you have to create this file on demand
+% \input{foreword}   %% this is a suggestion: you have to create this file on demand
+
+%% include the abstract without chapter number but include it on table of contents:
+\cleardoublepage
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{Abstract}
+
+%% Abstract
+\include{abstract}
+
+\tableofcontents %% this produces the table of contents - you might have guessed :-)
+
+%% if myaddlistoftodos is set to "true", the current list of open todos is added:
+\ifthenelse{\boolean{myaddlistoftodos}}{
+  \newpage\listoftodos          %% handy if you are using todonotes with \todo{}
+}{}                             %% with todonotes-package option "disable" you can get rid of any todo in the output
+
+%% KOMA: marks main part using arabic page numbers 
+%% and such; only available in scrbook
+\mainmatter
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% chapter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+\include{chapter/test_chapter}             
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{plain} %% removes the head lines for the appendix
+\input{register/register}
+\input{table/table_test}
+
+%%%% end{document}
+\end{document}
+
+%% vim:foldmethod=expr
+%% vim:fde=getline(v\:lnum)=~'^%%%%\ .\\+'?'>1'\:'='
+%%% Local Variables:
+%%% mode: latex
+%%% mode: auto-fill
+%%% mode: flyspell
+%%% eval: (ispell-change-dictionary "en_US")
+%%% TeX-master: "main"
+%%% End:
