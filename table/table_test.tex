@@ -1,0 +1,81 @@
+%% this table is based on longtabu
+%% for further details see the longtabu documentation
+
+
+%%%%% either use the "landscape" environment for large landscape tables or use the "centering" environment for portrait tables 
+
+\begin{landscape} % or
+%\begin{centering}
+%%%%%
+
+\scriptsize            % size of the font used in table
+\tabulinesep=1.2mm     % sets the vertical spacing
+\singlespacing         % single line spacing (needed if 1,5 or 2 line spacing is used)
+
+% the command below defines the table itself. Adapt to your needs.
+% note: with the usage of landscape the raggedleft/raggedright might be inverted
+\begin{longtabu}to    \linewidth{|X|
+                    >{\raggedright}X|
+                    >{\centering}X|
+                    >{\centering}X|
+                    >{\centering}X|
+                    >{\centering}X|
+                    >{\centering}X|
+                    >{\centering}X[3]|} 
+
+
+%%%%%% header %%%%%%
+\hline 
+       \footnotesize\textbf{Column 1} &  
+       \footnotesize\textbf{Column 2} & 
+       \footnotesize\textbf{Column 3} & 
+       \footnotesize\textbf{Column 4} & 
+       \footnotesize\textbf{Column 5} & 
+       \footnotesize\textbf{Column 6} & 
+       \footnotesize\textbf{Column 7} & 
+       \footnotesize\textbf{Column 8}\\
+\hline \endhead 
+%%%%% end header %%%%%
+
+%%%%% content %%%%%
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+asdfsad asdf& a.b. &1657&1780&&&ASDFJKLÖ, asdf, 376&sdfasdf asdffd, sdfasdf asdfasdf  \\\hline
+
+\hline
+\nopagebreak 
+%%%%% end content %%%%%
+
+%%%%% caption %%%%%
+\caption{This is the caption text}
+%%%%% end caption %%%%%
+
+\end{longtabu}
+
+%%%%% either use the "landscape" environment for large landscape tables or use the "centering" environment for portrait tables 
+
+\end{landscape} % or 
+%\end{centering}
+%%%

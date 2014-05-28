@@ -1,0 +1,81 @@
+% This file was created with JabRef 2.9.2.
+% Encoding: UTF8
+
+@INCOLLECTION{Muster6,
+  author = {Musterfrau, Eva},
+  title = {Die Organisation von Tests},
+  crossref = {Muster4},
+  pages = {54-76},
+  shorttitle = {Die Organisation},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@COLLECTION{Muster4,
+  address = {Wien},
+  editor = {Mustermann, Max and Musterfrau, Eva},
+  journal = {Die Testblätter},
+  crossref = {Muster5},
+  year = {2006},
+  title = {Test in den Testblättern},
+  shorttitle = {Test},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@MISC{Muster7,
+  author = {Allgemeines Archiv},
+  title = {Finanzministerium, K. 5},
+  keywords = {ungedruckt},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@ARTICLE{Muster3,
+  author = {Hahn, C.},
+  title = {Das Wort},
+  journal = {Allgemeines Lexikon},
+  year = {1990},
+  volume = {24},
+  pages = {51},
+  shorttitle = {Wort},
+  keywords = {lexika},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@ARTICLE{Muster1,
+  author = {Max Mustermann},
+  title = {Das Musterblatt in heutiger Zeit},
+  journal = {Musterzeitung},
+  year = {2014},
+  pages = {25-50},
+  shorttitle = {Das Musterblatt},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@BOOK{Muster8,
+  title = {Die Edition der Finanzquellen},
+  year = {2005},
+  author = {Mustermensch, Jan},
+  address = {Köln},
+  shorttitle = {Die Edition},
+  keywords = {gedruckt},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@BOOK{Muster2,
+  title = {Der Tag im Test},
+  year = {2011},
+  author = {Testmann, Erwin},
+  editor = {Grafik, Hans},
+  address = {Köln},
+  shorttitle = {Der Tag},
+  owner = {Empire},
+  timestamp = {2014.05.25}
+}
+
+@comment{jabref-entrytype: Collection: req[address;editor;journal;crossref;year;title;series;keywords;shorttitle;author] opt[]}
+

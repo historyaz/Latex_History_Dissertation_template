@@ -1,0 +1,174 @@
+%% Time-stamp: <2013-05-16 11:18:03 vk>
+%%%% === Disclaimer: =======================================================
+%% created by
+%%
+%%      Karl Voit
+%%
+%% using GNU/Linux, GNU Emacs & LaTeX 2e
+%%
+
+%% overrides the default preamble
+
+\documentclass[%
+fontsize=\myfontsize,%% size of the main text
+paper=\mypapersize,  %% paper format
+%parskip=\myparskip,  %% vertical space between paragraphs (instead of indenting first par-line)
+DIV=14,           %calc %% page side space%% calculates a good DIV value for type area; 66 characters/line is great
+headinclude=true,    %% is header part of margin space or part of page content?
+footinclude=false,   %% is footer part of margin space or part of page content?
+open=right,          %% "right" or "left": start new chapter on right or left page
+appendixprefix=true, %% adds appendix prefix; only for book-classes with \backmatter
+bibliography=totoc,  %% adds the bibliography to table of contents (without number)
+%liststotoc,        %% adds the list of figures to table of contents
+listof=totocnumbered,%% changes list of figures to chapter with numbering
+listof=leveldown,    %% cahnges list of figures from chapter to section
+draft=\mydraft,      %% if true: included graphics are omitted and black boxes
+                     %%          mark overfull boxes in margin space                   
+BCOR=\myBCOR,        %% binding correction (depends on how you bind
+                     %% the resulting printout.
+pointlessnumbers,    %% removes dot after chapter numbering                   
+\mylaterality        %% oneside: document is not printed on left and right sides, only right side
+                     %% twoside: document is printed on left and right sides                     
+]{scrbook}  %% article class of KOMA: "scrartcl", "scrreprt", or "scrbook".
+            %% CAUTION: If documentclass will be changed, *many* other things
+            %%          change as well like heading structure, ...
+
+% FIXXME: adopting class usage:
+% from scrbook -> scrartcl OR scrreport:
+% - remove appendixprefix from class options
+% - remove \frontmatter \mainmatter \backmatter \appendix from main.tex
+
+% FIXXME: adopting language:
+% add or modify language parameter of package »babel« and use language switches described in babel-documentation
+ 
+%\usepackage{ucs}             %% UTF8 as input characters; UCS incompatible to biblatex
+\usepackage[utf8]{inputenc} %% UTF8 as input characters
+
+%% used languages; default language is *last* language of options
+\usepackage[\mylanguage]{babel}
+
+%% advanced page style using KOMA
+%% refer to KOMA documentation for further options
+\usepackage{scrpage2}
+
+
+%%%% !! IMPORTANT THIS PACKAGE NEEDS OPTIONS SET IN THE LATEX EDITOR !!
+%% tested with texpad (on osx)
+%% -shell-excape
+%% PROJECT FILES MUST NOT BE HIDDEN IN SEPARATE FOLDER
+
+\usepackage[xindy]{imakeidx} %% for multiple index and parted alphabetically (Unterteilung mit Buchstaben)
+\usepackage[backend=biber, %% using "biber" to compile references (instead of "biblatex")
+style=\mybiblatexstyle, %% see biblatex documentation
+%%% style=alphabetic, %% see biblatex documentation
+%%% dashed=\mybiblatexdashed, %% do *not* replace recurring reference authors with a dash
+backref=\mybiblatexbackref, %% create backlings from references to citations
+url=false, %% prevents the usage of URLs from a bib file. Activate to use URLs.
+natbib=true, %% offering natbib-compatible commands
+hyperref=true, %% using hyperref-package references
+namefont=smallcaps, %%% Lastname as smallcaps (Kapitälchen)
+maxnames=99, %%% lässt alle Autoren und Herausgeber anzeigen!
+xref=true, %%% creates a reference from incollection (Artikel) to collection (Sammelbänden) shows both in bibliography 
+]{biblatex}  %% remove, if using BibTeX instead of biblatex
+
+
+\usepackage{chngcntr}
+%\counterwithout{footnote}{chapter} %% footnotes are numbered contiously
+
+%%% changes colon to comma in citations (between Author and Titel)
+%% Example  Author: Titel => Author, Titel
+\renewcommand{\nametitledelim}{\addcomma\space}
+
+%% with multiple authors set firstname before lastname 
+\DeclareNameAlias{sortname}{last-first}
+
+%% with multiple autors/publisher(Autoren/Herausgeber) 
+%% the names in the bibliography are parted by semicolons, 
+%% the last will still use 'and' (und)
+\renewcommand{\bibmultinamedelim}{\addsemicolon\space}
+
+%%% changes the parting of the last also to semicolon
+\renewcommand{\bibfinalnamedelim}{\addsemicolon\space}
+
+% removes S. / p. befor page numbers in footnotes 
+\DeclareFieldFormat{postnote}{#1}
+
+% removes pages numbers in footnotes 
+\DeclareFieldFormat{urlprefix}{#1}
+
+% removes S. befor pagenumbers in Bibliography (not used) 
+%\DeclareFieldFormat{pages}{#1}
+
+\addbibresource{\mybiblatexfile} %% remove, if using BibTeX instead of biblatex
+
+% Verweise innerhalb des Textes machen:\nameref{Kapitelname}= Verweis auf das Kapitel (Achtung: Das Kapitel vorher als \label{Kapitelname} definieren)\autoref{Kapitelnummer} \pageref{Kapitelname}= verweist auf Seite! Kann auch in Fußnoten eingebunden sein!
+
+
+% The widely used package to use graphical images within a \LaTeX{} document.
+\usepackage[pdftex]{graphicx}
+
+% For additional special characters available by \verb#\ding{}#
+\usepackage{pifont}  %% special character for titlepage (Titelseite) \ding{}
+
+% For using if/then/else statements for example in macros
+\usepackage{ifthen}  
+
+%% pre-define ifthen-boolean variables:
+\newboolean{myaddcolophon}
+\newboolean{myaddlistoftodos}
+
+% Using the character for Euro with \verb#\officialeuro{}#
+%\usepackage{eurosym}
+
+% This package is required for intelligent spacing after commands
+\usepackage{xspace}
+
+%%%%!!!!!!!!!!%%%%%%%
+\usepackage{setspace}
+
+% This package defines basic colors. If you want to get rid of colored links and headings
+% please change corresponding value in \texttt{main.tex} to \{0,0,0\}.
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{DispositionColor}{RGB}{\mydispositioncolor} %% used for links and so forth in screen-version
+
+% This package offers strikethrough command \verb+\sout{foobar}+.
+\usepackage[normalem]{ulem}
+
+% Create framed, shaded, or differently highlighted regions that can 
+% break across pages.  The environments defined are 
+\usepackage{framed}
+
+% For example on title pages you might want to have a logo on the upper right corner of
+% the first page (only). The package eso-pic is able to place things on absolute
+% and relative positions on the whole page.
+\usepackage{eso-pic} %%
+
+% This package replaces the built-in definitions for enumerate, itemize and description. 
+% With enumitem the user has more control over the layout of those environments.
+\usepackage{enumitem} %%
+
+%% option "disable" removes all todonotes output from resulting document
+\usepackage[\mytodonotesoptions]{todonotes} 
+
+% For setting correctly typesetted units and nice fractions with \verb+\unit[42]{m}+ and \verb+\unitfrac[100]{km}{h}+.
+\usepackage{units}
+
+% uses longtable, tabu for tables
+\usepackage{longtable,tabu}
+
+% uses landscape to make pages landscape, or tables on pages
+\usepackage{lscape}
+
+% generates random text for showcasing
+\usepackage{blindtext}
+
+%%%% End 
+%%% Local Variables:
+%%% TeX-master: "../main"
+%%% mode: latex
+%%% mode: auto-fill
+%%% mode: flyspell
+%%% eval: (ispell-change-dictionary "en_US")
+%%% End:
+%% vim:foldmethod=expr
+%% vim:fde=getline(v\:lnum)=~'^%%%%'?0\:getline(v\:lnum)=~'^%doc.*\ .\\%(sub\\)\\?section{.\\+'?'>1'\:'1':

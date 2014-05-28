@@ -1,0 +1,64 @@
+
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{Anhang}
+\appendix                       %% closes main document, appendix follows until end; only available in book-classes
+
+%% erzeugt die Verzeichnisse und Register
+%% diese werden nur erzeugt wenn auch Zitate und Einträge verwendet wurden
+%% Die Verzeichnisstruktur muss angepasst werden sofern nicht alle Verzeichnisse verwendet werden
+
+%% die Unterteilung in die entsprechenden Verzeichnisse erfolgt mittels biblatex keywords
+% ungedruckt: ungedruckte Quellen
+% gedruckt: gedruckte Quellen
+% lexika: Nachschlagewerke
+% keine Keyword: Sekundärliteratur
+%\addcontentsline{toc}{chapter}{Anhang}
+
+\chapter{Verzeichnisse}        %% fügt ein Anhangkapitel hinzu
+%\newpage
+
+%% erzeugt Abbildungsverzeichnis
+%% Abkürzungen müssen erst erzeugt und verwendet werden damit diese angezeigt werden
+\printglossary[type=\acronymtype,title=Abkürzungsverzeichnis]
+%\newpage     
+\section{Quellenverzeichnis} %% erzeugt ein Kapitel Quellenverzeichnis
+%% generiert die ungedruckten quellen (falls verwendet)
+\input{Register/ungedruckte}
+
+%\defbibheading{uprint}{\subsection{Ungedruckte Quellen}}
+%\printbibliography[heading=uprint,keyword=ungedruckt]
+
+%%
+%\newpage
+%% generiert gedruckte quellen (falls verwendet)
+\defbibheading{print}{\subsection{Gedruckte Quellen}}
+\printbibliography[heading=print,keyword=gedruckt]
+%%
+%\newpage
+\section{Literaturverzeichnis} %% erzeugt ein Kapitel 
+%% nachschlagewerke
+\defbibheading{lexica}{\subsection{Nachschlagewerke}}
+\printbibliography[heading=lexica,keyword=lexika]
+%%
+%\newpage
+%% Sekundärliteratur
+\defbibheading{seclit}{\subsection{Sekundärliteratur}}
+\printbibliography[heading=seclit,notkeyword=lexika,notkeyword=ungedruckt,notkeyword=gedruckt]
+%%
+
+%\section{Abbildungsverzeichnis}
+%\newpage
+\listoffigures                 %% Abbildungsverzeichnis
+
+\chapter{Register}
+%% erzeugt Namensregister
+
+
+\printindex[autor]
+
+%\newpage
+\printindex[sach]
+%% erzeugt Sachregister
+
+%%%
+
+

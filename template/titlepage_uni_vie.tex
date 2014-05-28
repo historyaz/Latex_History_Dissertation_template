@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Titelseite fuer eine Diplomarbeit/Dissertation an der Uni Wien  %%
+%%                     zur Benutzung mit LaTeX                      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  Erstellt anhand der Vorlagendefinition von
+%%  http://www.univie.ac.at/Psychologie/cgi-bin/dbman/uploads/download/
+%%      51_infoblatt__titelblatt_wissenschaftliche_arbeit.pdf
+%%
+%% Einzubinden in der eigenen document-Umgebung mittels \input{thesistitle}
+%%
+%% Ueberschriften wie "Titel der Diplomarbeit" oder "Verfasserin" (etc.)
+%% muessen genau so stehen bleiben. Nur der Titel der Arbeit oder die Namen
+%% sind entsprechend beliebig.
+
+% Stephan Paukner, 14.08.2007
+% Obige Vorlagendefinition schlaegt Arial oder eine vergleichbare serifenlose
+% Schriftart vor. Der serifenlose Font von LaTeX, CMSS, hat leider keine
+% fette (bold) Variante. Arial ist allerdings ein kommerzieller Font und unter
+% LaTeX standardmaessig nicht verfuegbar. Am naehesten kommt dem der Font
+% Helvetica, einzubinden via \usepackage[scaled=0.90]{helvet} in der Praeambel.
+
+\begin{titlepage}
+
+\vspace*{-3cm}  % bei Verwendung von vmargin.sty
+\begin{flushright}
+    \includegraphics{figures/uni_logo_farbe_02}
+\end{flushright}
+\vspace{1cm}
+\linespread{1.3}
+\begin{center}  % Diplomarbeit ODER Magisterarbeit ODER Dissertation
+    \Huge{\textbf{\textsf{\MakeUppercase{
+        \myworktitle
+    }}}}
+    \vspace{2cm}
+
+    \large{\textsf{  % Diplomarbeit ODER Magisterarbeit ODER Dissertation
+                     % (Dies ist erst die Ueberschrift!)
+        Titel der \myworktitle
+    }}
+    \vspace{.1cm}
+
+    \LARGE{\textsf{  % Hier kommt der eigentliche Titel, bei Bedarf mit \\
+                     % ACHTUNG: Deutsche Anfuehrungszeichen: ,,Titel``
+                     %          English quotes:              ``title''
+        % >>>>> BEGINN TITEL >>>>>
+        \mytitle 
+        \mysubtitle
+        %``The Creation of a Title Page''
+        % <<<<< ENDE TITEL <<<<<
+    }}
+    \vspace{1.5cm}
+
+    \large{\textsf{  % Verfasserin ODER Verfasser (Ueberschrift)
+        Verfasser
+    }}
+
+    \Large{\textsf{  % Vorname Nachname
+        % >>>>> BEGINN VORNAME NACHNAME >>>>>
+        \myauthor
+        % <<<<< ENDE VORNAME NACHNAME <<<<<
+    }}
+    \vspace{1.5cm}
+
+    \large{\textsf{
+        angestrebter akademischer Grad  % (Ueberschrift)
+    }}
+
+    \Large{\textsf{  % Magistra ODER Magister ODER Doktorin ODER Doktor
+                     % ACHTUNG: Kuerzel "Mag.a" oder "Dr.in" nicht zulaessig
+        \mygrade
+    }}
+\end{center}
+\vspace{2cm}
+
+\noindent\textsf{\mysubmissiontown, \mysubmissionmonth\hspace{0.2cm}\mysubmissionyear}  % <<<<< ORT, MONAT UND JAHR EINTRAGEN
+\vfill
+\vspace{0.5cm}
+\noindent\begin{tabular}{@{}ll}
+\textsf{Studienkennzahl lt.\ Studienblatt:}
+&
+\textsf{\myid}  % <<<<< STUDIENKENNZAHL EINTRAGEN
+\\
+    % BEI DISSERTATIONEN:
+\textsf{Dissertationsgebiet lt. Studienblatt:}
+    % ANSONSTEN:
+%\textsf{Studienrichtung lt.\ Studienblatt:}
+&
+\textsf{\mystudy}  % <<<<< DISSGEBIET/STUDIENRICHTUNG EINTRAGEN
+\\
+% Betreuerin ODER Betreuer:
+\textsf{Betreuer:}
+&
+\textsf{\mysupervisor}  % <<<<< NAME EINTRAGEN
+\end{tabular}
+
+\end{titlepage}
